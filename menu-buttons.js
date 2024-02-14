@@ -1,6 +1,16 @@
+import { menu } from ".product.js";
 const btnContainer = document.querySelector(".btn-container");
 
-const categories = ["All", "Japanese", "Korean", "Chinese"];
+const categories = menu.reduce(
+  (values, item) => {
+    if (!values.includes(item.category)) {
+      values.push(item.category);
+    }
+    return values;
+  },
+  ["All"]
+);
+
 const categoryList = () => {
   const categoryBtns = categories
     .map((category) => {
