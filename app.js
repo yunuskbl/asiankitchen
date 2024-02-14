@@ -140,4 +140,3 @@ const menuList = (menuItems) => {
 
 menuList(menu);
 categoryList();
-
