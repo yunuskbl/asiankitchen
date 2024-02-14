@@ -1,12 +1,32 @@
-const categories = ["All", "Korean", "Japan", "Chinese"];
+const btnContainer = document.querySelector(".btn-container");
 
-// HTML içinde filter buttonsları oluşturma
-const btnContainer = document.getElementById("btn-container");
+const categories = ["All", "Japanese", "Korean", "Chinese"];
+const categoryList = () => {
+  const categoryBtns = categories
+    .map((category) => {
+      return `<button class="btn btn-outline-dark btn-item" data-id=${category}>${category}</button>`;
+    })
+    .join("");
 
-categories.forEach((category) => {
-  const btn = document.createElement("button");
-  btn.classList.add("btn", "btn-outline-dark", "btn-item");
-  btn.setAttribute("data-id", category);
-  btn.textContent = category;
-  btnContainer.appendChild(btn);
-});
+  btnContainer.innerHTML = categoryBtns;
+  const filterBtns = document.querySelectorAll(".btn-item");
+
+  //filter menu
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const category = e.currentTarget.dataset.id;
+      console.log(category);
+      const menuCategory = menu.filter((menuItem) => {
+        if (menuItem.category === category) {
+          return menuItem;
+        }
+      });
+      if (category === "All") {
+        menuList(menu);
+      } else {
+        menuList(menuCategory);
+      }
+    });
+  });
+};
+categoryList();

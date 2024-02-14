@@ -1,5 +1,3 @@
-const menuContainer = document.querySelector("section-center");
-
 const menu = [
   {
     id: 1,
@@ -74,15 +72,30 @@ const menu = [
     desc: `Red bean paste dessert, serving with honey.`,
   },
 ];
-menu.forEach(item => {
-    const menuItem = document.createElement("div");
-    menuItem.classList.add("menu-item");
-    menuItem.innerHTML = `
-      <img src="${item.img}" alt="${item.title}" />
-      <h3>${item.title}</h3>
-      <p>${item.desc}</p>
-      <p>${item.category}</p>
-      <p>$${item.price}</p>
-    `;
-    menuContainer.appendChild(menuItem);
+
+const section = document.querySelector(".section-center");
+const menuList = (menuItems) => {
+  let displayMenu = menuItems.map((item) => {
+    return `<div class="menu-items col-lg-6 col-sm-12">
+              <img
+                src=${item.img}
+                alt=${item.title}
+                class="photo"
+              />
+              <div class="menu-info">
+                <div class="menu-title">
+                  <h4>${item.title}</h4>
+                  <h4 class="price">${item.price}</h4>
+                </div>
+                <div class="menu-text">
+                  ${item.desc}
+                </div>
+              </div>
+            </div>
+      `;
   });
+  displayMenu = displayMenu.join("");
+  section.innerHTML = displayMenu;
+};
+
+menuList(menu);
