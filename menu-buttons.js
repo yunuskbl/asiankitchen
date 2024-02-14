@@ -1,4 +1,3 @@
-import { menu } from ".product.js";
 const btnContainer = document.querySelector(".btn-container");
 
 const categories = menu.reduce(
@@ -39,4 +38,5 @@ const categoryList = () => {
     });
   });
 };
+
 categoryList();

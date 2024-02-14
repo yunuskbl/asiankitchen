@@ -1,4 +1,4 @@
-export const menu = [
+const menu = [
   {
     id: 1,
     title: "Tteokbokki",
@@ -72,7 +72,6 @@ export const menu = [
     desc: `Red bean paste dessert, serving with honey.`,
   },
 ];
-
 const section = document.querySelector(".section-center");
 const menuList = (menuItems) => {
   let displayMenu = menuItems.map((item) => {
